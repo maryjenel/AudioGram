@@ -20,7 +20,6 @@
 		62AD3A551A813532009FDE5C /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AD3A491A813532009FDE5C /* ProfileViewController.m */; };
 		62AD3A561A813532009FDE5C /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AD3A4B1A813532009FDE5C /* SearchViewController.m */; };
 		62AD3A571A813532009FDE5C /* SelectedPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AD3A4D1A813532009FDE5C /* SelectedPictureViewController.m */; };
-		62AD3A5A1A813BA0009FDE5C /* aViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AD3A591A813BA0009FDE5C /* aViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,8 +57,6 @@
 		62AD3A4B1A813532009FDE5C /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		62AD3A4C1A813532009FDE5C /* SelectedPictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedPictureViewController.h; sourceTree = "<group>"; };
 		62AD3A4D1A813532009FDE5C /* SelectedPictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedPictureViewController.m; sourceTree = "<group>"; };
-		62AD3A581A813BA0009FDE5C /* aViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aViewController.h; sourceTree = "<group>"; };
-		62AD3A591A813BA0009FDE5C /* aViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = aViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,8 +116,6 @@
 				62AD3A4D1A813532009FDE5C /* SelectedPictureViewController.m */,
 				625979481A80358300AF6C9D /* Images.xcassets */,
 				625979381A80358300AF6C9D /* Supporting Files */,
-				62AD3A581A813BA0009FDE5C /* aViewController.h */,
-				62AD3A591A813BA0009FDE5C /* aViewController.m */,
 			);
 			path = AudioGram;
 			sourceTree = "<group>";
@@ -266,7 +261,6 @@
 				62AD3A561A813532009FDE5C /* SearchViewController.m in Sources */,
 				62AD3A4F1A813532009FDE5C /* AudioGram.xcdatamodeld in Sources */,
 				62AD3A4E1A813532009FDE5C /* AddPhotoViewController.m in Sources */,
-				62AD3A5A1A813BA0009FDE5C /* aViewController.m in Sources */,
 				62AD3A521A813532009FDE5C /* HomeViewController.m in Sources */,
 				62AD3A531A813532009FDE5C /* ImageCollectionViewCell.m in Sources */,
 				6259793B1A80358300AF6C9D /* main.m in Sources */,
