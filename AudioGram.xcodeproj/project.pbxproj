@@ -72,11 +72,11 @@
 		62AD3A441A813532009FDE5C /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		62AD3A451A813532009FDE5C /* ImageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCollectionViewCell.h; sourceTree = "<group>"; };
 		62AD3A461A813532009FDE5C /* ImageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCollectionViewCell.m; sourceTree = "<group>"; };
-		62AD3A8F1A8170C6009FDE5C /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
-		62AD3A901A8170C6009FDE5C /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
-		62AD3A911A8170C6009FDE5C /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseCrashReporting.framework; sourceTree = "<group>"; };
-		62AD3A921A8170C6009FDE5C /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
-		62AD3A931A8170C6009FDE5C /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
+		62AD3A8F1A8170C6009FDE5C /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = "../../Downloads/parse-library-1-2/Bolts.framework"; sourceTree = "<group>"; };
+		62AD3A901A8170C6009FDE5C /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = "../../Downloads/parse-library-1-2/Parse.framework"; sourceTree = "<group>"; };
+		62AD3A911A8170C6009FDE5C /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseCrashReporting.framework; path = "../../Downloads/parse-library-1-2/ParseCrashReporting.framework"; sourceTree = "<group>"; };
+		62AD3A921A8170C6009FDE5C /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtils.framework; path = "../../Downloads/parse-library-1-2/ParseFacebookUtils.framework"; sourceTree = "<group>"; };
+		62AD3A931A8170C6009FDE5C /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseUI.framework; path = "../../Downloads/parse-library-1-2/ParseUI.framework"; sourceTree = "<group>"; };
 		62AD3A941A8170E8009FDE5C /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		62AD3A961A8170EF009FDE5C /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		62AD3A981A8170F5009FDE5C /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
@@ -211,7 +211,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		62AD3A8E1A8170C6009FDE5C /* parse-library-1-2 */ = {
+		62AD3AB41A817154009FDE5C /* frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				62AD3A8F1A8170C6009FDE5C /* Bolts.framework */,
@@ -219,15 +219,6 @@
 				62AD3A911A8170C6009FDE5C /* ParseCrashReporting.framework */,
 				62AD3A921A8170C6009FDE5C /* ParseFacebookUtils.framework */,
 				62AD3A931A8170C6009FDE5C /* ParseUI.framework */,
-			);
-			name = "parse-library-1-2";
-			path = "../../Downloads/parse-library-1-2";
-			sourceTree = "<group>";
-		};
-		62AD3AB41A817154009FDE5C /* frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				62AD3A8E1A8170C6009FDE5C /* parse-library-1-2 */,
 				62AD3AAA1A817131009FDE5C /* Social.framework */,
 				62AD3AA81A81712C009FDE5C /* Security.framework */,
 				62AD3AA61A817126009FDE5C /* QuartzCore.framework */,
