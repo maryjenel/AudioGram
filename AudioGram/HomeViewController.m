@@ -11,6 +11,7 @@
 #import <Parse/Parse.h>
 
 @interface HomeViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
+@property (weak, nonatomic) IBOutlet UICollectionView *homeCollectionView;
 @property NSArray *photoArray;
 @end
 
@@ -24,7 +25,10 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
     {
         self.photoArray = objects;
+        [self.homeCollectionView reloadData];
+
     }];
+
 
     
 }
@@ -32,7 +36,14 @@
 -(ImageCollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ImageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"HomeImageCell" forIndexPath:indexPath];
-    cell.imageView.image = [self.photoArray objectAtIndex:indexPath.row];
+    PFObject *object = [self.photoArray objectAtIndex:indexPath.row];
+    PFFile *imageFile = [object objectForKey:@"image"];
+    [imageFile getDataInBackgroundWithBlock:^(NSData *data, NSError *error)
+    {
+        UIImage *image = [UIImage imageWithData:data];
+        cell.imageView.image = image;
+    }]; //prints out the image. must convert from file to data to image
+
 
     return cell;
     
@@ -40,7 +51,7 @@
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 1;
+    return self.photoArray.count;
 }
 
 

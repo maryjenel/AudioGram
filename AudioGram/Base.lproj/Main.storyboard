@@ -149,6 +149,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="topRated" id="Qzw-ez-ltb"/>
+                    <connections>
+                        <outlet property="homeCollectionView" destination="fss-Ax-Cxp" id="CHO-PK-6oH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IHB-Lf-kd3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
