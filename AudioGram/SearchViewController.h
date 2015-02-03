@@ -2,12 +2,12 @@
 //  SearchViewController.h
 //  AudioGram
 //
-//  Created by Mary Jenel Myers on 2/2/15.
+//  Created by Mary Jenel Myers on 2/3/15.
 //  Copyright (c) 2015 Mary Jenel Myers. All rights reserved.
 //
 
-#import "AddPhotoViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface SearchViewController : AddPhotoViewController
+@interface SearchViewController : UIViewController
 
 @end

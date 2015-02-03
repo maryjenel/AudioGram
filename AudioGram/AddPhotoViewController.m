@@ -9,13 +9,11 @@
 #import "AddPhotoViewController.h"
 #import <Parse/Parse.h>
 
-
-
-
 @interface UIViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property UIImagePickerController *imagePicker;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
 
 
 @end
@@ -39,7 +37,7 @@
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     UIImage *image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
-    [self.imageView setImage:image];
+    self.imageView.image = image;
     NSData *imageData = UIImagePNGRepresentation(image); //changed the image to a png file
     PFFile *imageFile = [PFFile fileWithName:@"AudioGramPhoto.png" data:imageData]; //create a PFFile inorder to save to parse
     [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)

@@ -16,13 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i3V-jW-JAg">
-                                <rect key="frame" x="49" y="250" width="249" height="68"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OeO-0a-mGr">
                                 <rect key="frame" x="247" y="481" width="51" height="30"/>
                                 <state key="normal" title="Share">
@@ -46,13 +39,10 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Add Photo" id="JHE-tg-CHB"/>
                     <navigationItem key="navigationItem" id="W2O-vS-8uw"/>
-                    <connections>
-                        <outlet property="imageView" destination="D7q-dg-kMR" id="ae7-W8-deR"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1809" y="83"/>
+            <point key="canvasLocation" x="2313" y="329"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="gQp-Kr-BEL">
@@ -82,7 +72,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="S1R-p6-HPg">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SearchCell" id="S1R-p6-HPg">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -109,7 +99,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Epc-fQ-8Z7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1359" y="984"/>
+            <point key="canvasLocation" x="1359" y="432"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="2Gd-j2-nks">
@@ -132,7 +122,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="imageCell" id="FQi-18-c5J" customClass="ImageCollectionViewCell">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HomeImageCell" id="FQi-18-c5J" customClass="ImageCollectionViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -162,12 +152,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IHB-Lf-kd3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1814" y="741"/>
+            <point key="canvasLocation" x="1814" y="424"/>
         </scene>
         <!--Selected Picture View Controller-->
         <scene sceneID="Nkd-Q4-TUL">
             <objects>
-                <viewController title="Selected Picture View Controller" id="B3R-r4-Kwq" sceneMemberID="viewController">
+                <viewController title="Selected Picture View Controller" id="B3R-r4-Kwq" customClass="SelectedPictureViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tSv-Mm-aZj"/>
                         <viewControllerLayoutGuide type="bottom" id="qkT-HP-nnP"/>
@@ -210,7 +200,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ydD-xk-jPb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="509" y="392"/>
+            <point key="canvasLocation" x="41" y="424"/>
         </scene>
         <!--Profile-->
         <scene sceneID="p2f-wG-Mek">
@@ -233,7 +223,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="9dy-Pw-29a">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProfileCell" id="9dy-Pw-29a">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -297,15 +287,15 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+                        <segue destination="G6F-DF-hpu" kind="relationship" relationship="viewControllers" id="WO2-bI-3t0"/>
+                        <segue destination="mo8-JG-jeQ" kind="relationship" relationship="viewControllers" id="8ND-fd-EaO"/>
                         <segue destination="vXZ-lx-hvc" kind="relationship" relationship="viewControllers" id="x5W-tk-sGd"/>
                         <segue destination="ZDb-mC-NX8" kind="relationship" relationship="viewControllers" id="0ea-26-Rjl"/>
-                        <segue destination="mo8-JG-jeQ" kind="relationship" relationship="viewControllers" id="8ND-fd-EaO"/>
-                        <segue destination="G6F-DF-hpu" kind="relationship" relationship="viewControllers" id="WO2-bI-3t0"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hDS-jy-bJp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1365" y="239"/>
+            <point key="canvasLocation" x="1487" y="-481"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sXR-Ol-orU">
@@ -324,7 +314,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UFu-VL-DcJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="20" y="392"/>
+            <point key="canvasLocation" x="526" y="424"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -2,13 +2,13 @@
 //  ProfileViewController.m
 //  AudioGram
 //
-//  Created by Mary Jenel Myers on 2/2/15.
+//  Created by Mary Jenel Myers on 2/3/15.
 //  Copyright (c) 2015 Mary Jenel Myers. All rights reserved.
 //
 
 #import "ProfileViewController.h"
 
-@interface ProfileViewController ()
+@interface ProfileViewController () <UICollectionViewDataSource>
 
 @end
 
@@ -24,6 +24,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return 0;
+
+}
 /*
 #pragma mark - Navigation
 
