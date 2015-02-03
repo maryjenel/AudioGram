@@ -7,8 +7,9 @@
 //
 
 #import "SearchViewController.h"
+#import "ImageCollectionViewCell.h"
 
-@interface SearchViewController () <UICollectionViewDataSource>
+@interface SearchViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @end
 
@@ -26,8 +27,13 @@
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-
     return  0;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    ImageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"SearchCell" forIndexPath:indexPath];
+    return cell;
 }
 
 
