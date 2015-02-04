@@ -13,6 +13,9 @@
 		625979491A80358300AF6C9D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 625979481A80358300AF6C9D /* Images.xcassets */; };
 		625979581A80358300AF6C9D /* AudioGramTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 625979571A80358300AF6C9D /* AudioGramTests.m */; };
 		62AB2CB51A81CA81008FAF04 /* MyLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AB2CB41A81CA81008FAF04 /* MyLoginViewController.m */; };
+		62AB2CB71A81D7F9008FAF04 /* musicVideotest2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 62AB2CB61A81D7F9008FAF04 /* musicVideotest2.gif */; };
+		62AB2CBD1A81E318008FAF04 /* FLAnimatedImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AB2CBA1A81E318008FAF04 /* FLAnimatedImage.m */; };
+		62AB2CBE1A81E318008FAF04 /* FLAnimatedImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AB2CBC1A81E318008FAF04 /* FLAnimatedImageView.m */; };
 		62AD3A4E1A813532009FDE5C /* AddPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AD3A3B1A813532009FDE5C /* AddPhotoViewController.m */; };
 		62AD3A4F1A813532009FDE5C /* AudioGram.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 62AD3A3C1A813532009FDE5C /* AudioGram.xcdatamodeld */; };
 		62AD3A501A813532009FDE5C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62AD3A3F1A813532009FDE5C /* LaunchScreen.xib */; };
@@ -67,6 +70,11 @@
 		625979571A80358300AF6C9D /* AudioGramTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioGramTests.m; sourceTree = "<group>"; };
 		62AB2CB31A81CA81008FAF04 /* MyLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyLoginViewController.h; path = ../MyLoginViewController.h; sourceTree = "<group>"; };
 		62AB2CB41A81CA81008FAF04 /* MyLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyLoginViewController.m; path = ../MyLoginViewController.m; sourceTree = "<group>"; };
+		62AB2CB61A81D7F9008FAF04 /* musicVideotest2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = musicVideotest2.gif; sourceTree = "<group>"; };
+		62AB2CB91A81E318008FAF04 /* FLAnimatedImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLAnimatedImage.h; sourceTree = "<group>"; };
+		62AB2CBA1A81E318008FAF04 /* FLAnimatedImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLAnimatedImage.m; sourceTree = "<group>"; };
+		62AB2CBB1A81E318008FAF04 /* FLAnimatedImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLAnimatedImageView.h; sourceTree = "<group>"; };
+		62AB2CBC1A81E318008FAF04 /* FLAnimatedImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLAnimatedImageView.m; sourceTree = "<group>"; };
 		62AD3A3A1A813532009FDE5C /* AddPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPhotoViewController.h; sourceTree = "<group>"; };
 		62AD3A3B1A813532009FDE5C /* AddPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPhotoViewController.m; sourceTree = "<group>"; };
 		62AD3A3D1A813532009FDE5C /* AudioGram.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AudioGram.xcdatamodel; sourceTree = "<group>"; };
@@ -170,6 +178,7 @@
 		625979371A80358300AF6C9D /* AudioGram */ = {
 			isa = PBXGroup;
 			children = (
+				62AB2CB81A81E318008FAF04 /* FLAnimatedImage */,
 				6259793C1A80358300AF6C9D /* AppDelegate.h */,
 				6259793D1A80358300AF6C9D /* AppDelegate.m */,
 				62AD3A3A1A813532009FDE5C /* AddPhotoViewController.h */,
@@ -190,6 +199,7 @@
 				62AD3AC01A8179DF009FDE5C /* ProfileViewController.h */,
 				62AD3AC11A8179DF009FDE5C /* ProfileViewController.m */,
 				625979481A80358300AF6C9D /* Images.xcassets */,
+				62AB2CB61A81D7F9008FAF04 /* musicVideotest2.gif */,
 				625979381A80358300AF6C9D /* Supporting Files */,
 			);
 			path = AudioGram;
@@ -219,6 +229,18 @@
 				625979561A80358300AF6C9D /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		62AB2CB81A81E318008FAF04 /* FLAnimatedImage */ = {
+			isa = PBXGroup;
+			children = (
+				62AB2CB91A81E318008FAF04 /* FLAnimatedImage.h */,
+				62AB2CBA1A81E318008FAF04 /* FLAnimatedImage.m */,
+				62AB2CBB1A81E318008FAF04 /* FLAnimatedImageView.h */,
+				62AB2CBC1A81E318008FAF04 /* FLAnimatedImageView.m */,
+			);
+			name = FLAnimatedImage;
+			path = ../FLAnimatedImage;
 			sourceTree = "<group>";
 		};
 		62AD3AB41A817154009FDE5C /* Frameworks */ = {
@@ -335,6 +357,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				62AD3A501A813532009FDE5C /* LaunchScreen.xib in Resources */,
+				62AB2CB71A81D7F9008FAF04 /* musicVideotest2.gif in Resources */,
 				62AD3A511A813532009FDE5C /* Main.storyboard in Resources */,
 				625979491A80358300AF6C9D /* Images.xcassets in Resources */,
 			);
@@ -355,6 +378,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				62AB2CB51A81CA81008FAF04 /* MyLoginViewController.m in Sources */,
+				62AB2CBD1A81E318008FAF04 /* FLAnimatedImage.m in Sources */,
 				6259793E1A80358300AF6C9D /* AppDelegate.m in Sources */,
 				62AD3AC21A8179DF009FDE5C /* ProfileViewController.m in Sources */,
 				62AD3A4F1A813532009FDE5C /* AudioGram.xcdatamodeld in Sources */,
@@ -364,6 +388,7 @@
 				6259793B1A80358300AF6C9D /* main.m in Sources */,
 				62AD3ABF1A8179C1009FDE5C /* SelectedPictureViewController.m in Sources */,
 				62AD3ABC1A81798E009FDE5C /* SearchViewController.m in Sources */,
+				62AB2CBE1A81E318008FAF04 /* FLAnimatedImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

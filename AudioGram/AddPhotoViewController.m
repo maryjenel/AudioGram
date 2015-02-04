@@ -91,6 +91,7 @@
              PFObject *photoObject = [PFObject objectWithClassName:@"Photo"];
              photoObject[@"photoURL"] = @"bart";
              photoObject[@"image"] = imageFile;
+            [photoObject setObject:[PFUser currentUser] forKey:@"createdBy"];
              [photoObject saveInBackground];    // [Optional] Track statistics around application opens.
          }
      }];

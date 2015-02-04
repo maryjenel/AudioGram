@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="TCf-46-fFs">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Add Photo-->
@@ -69,10 +70,13 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Add Photo" id="JHE-tg-CHB"/>
                     <navigationItem key="navigationItem" id="W2O-vS-8uw"/>
+                    <connections>
+                        <outlet property="imageView" destination="D7q-dg-kMR" id="Qgd-8c-G61"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2281" y="432"/>
+            <point key="canvasLocation" x="2561" y="138"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="gQp-Kr-BEL">
@@ -93,7 +97,7 @@
                                     <outlet property="delegate" destination="mo8-JG-jeQ" id="SSj-Fa-cxb"/>
                                 </connections>
                             </searchBar>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="c1F-BL-dGP">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="c1F-BL-dGP">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wKy-FP-chb">
                                     <size key="itemSize" width="308" height="211"/>
@@ -124,12 +128,18 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="c1F-BL-dGP" firstAttribute="top" secondItem="f3z-6u-taN" secondAttribute="top" id="D4W-og-5cl"/>
+                            <constraint firstAttribute="trailing" secondItem="c1F-BL-dGP" secondAttribute="trailing" id="dAd-5n-fwA"/>
+                            <constraint firstItem="OWx-lM-jdo" firstAttribute="top" secondItem="c1F-BL-dGP" secondAttribute="bottom" id="iJ7-ST-Z2t"/>
+                            <constraint firstItem="c1F-BL-dGP" firstAttribute="leading" secondItem="f3z-6u-taN" secondAttribute="leading" id="jEQ-zg-ogS"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="search" id="wxo-OI-udu"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Epc-fQ-8Z7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1359" y="432"/>
+            <point key="canvasLocation" x="1527" y="246"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="2Gd-j2-nks">
@@ -143,7 +153,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fss-Ax-Cxp">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fss-Ax-Cxp">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="IFF-ZS-KLt">
                                     <size key="itemSize" width="319" height="526"/>
@@ -159,12 +169,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="319" height="526"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ad9-CW-yjk">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ad9-CW-yjk">
                                                     <rect key="frame" x="0.0" y="0.0" width="319" height="404"/>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="ad9-CW-yjk" firstAttribute="leading" secondItem="FQi-18-c5J" secondAttribute="leadingMargin" constant="-8" id="1qW-mH-yse"/>
+                                            <constraint firstItem="ad9-CW-yjk" firstAttribute="top" secondItem="FQi-18-c5J" secondAttribute="topMargin" constant="-8" id="Y4m-LV-Waj"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="ad9-CW-yjk" secondAttribute="trailing" constant="-8" id="szx-9F-f1W"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="ad9-CW-yjk" secondAttribute="bottom" constant="114" id="xmq-qn-en8"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="imageView" destination="ad9-CW-yjk" id="SVX-Dx-1CN"/>
                                         </connections>
@@ -177,6 +193,12 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="fss-Ax-Cxp" secondAttribute="bottom" id="Bzc-r9-06l"/>
+                            <constraint firstAttribute="trailing" secondItem="fss-Ax-Cxp" secondAttribute="trailing" id="NDm-iO-LP7"/>
+                            <constraint firstItem="fss-Ax-Cxp" firstAttribute="leading" secondItem="wLG-xD-FiO" secondAttribute="leading" id="c0G-uH-zzo"/>
+                            <constraint firstItem="fss-Ax-Cxp" firstAttribute="top" secondItem="wLG-xD-FiO" secondAttribute="top" id="c0i-nT-3K2"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="topRated" id="Qzw-ez-ltb"/>
                     <connections>
@@ -185,7 +207,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IHB-Lf-kd3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1814" y="424"/>
+            <point key="canvasLocation" x="2019" y="246"/>
         </scene>
         <!--Selected Picture View Controller-->
         <scene sceneID="Nkd-Q4-TUL">
@@ -233,7 +255,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ydD-xk-jPb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="939" y="1884"/>
+            <point key="canvasLocation" x="1041" y="1556"/>
         </scene>
         <!--Profile-->
         <scene sceneID="p2f-wG-Mek">
@@ -247,7 +269,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="EOw-SW-FBZ">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="EOw-SW-FBZ">
                                 <rect key="frame" x="0.0" y="184" width="320" height="335"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rEL-qe-euY">
                                     <size key="itemSize" width="80" height="88"/>
@@ -263,8 +285,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="80" height="88"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kY7-et-WSy">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kY7-et-WSy">
                                                     <rect key="frame" x="0.0" y="0.0" width="80" height="88"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="88" id="RSR-r6-G7D"/>
+                                                        <constraint firstAttribute="width" constant="80" id="eki-Hn-Y7q"/>
+                                                    </constraints>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -279,7 +305,7 @@
                                     <outlet property="delegate" destination="G6F-DF-hpu" id="TXW-CF-FGY"/>
                                 </connections>
                             </collectionView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rym-oS-Qbg">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rym-oS-Qbg">
                                 <rect key="frame" x="9" y="14" width="68" height="88"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="followers" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yf8-QL-lbc">
@@ -302,12 +328,18 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="EOw-SW-FBZ" firstAttribute="leading" secondItem="WT8-bj-F79" secondAttribute="leading" id="Fm5-2M-uNL"/>
+                            <constraint firstItem="BDL-UV-T1N" firstAttribute="top" secondItem="EOw-SW-FBZ" secondAttribute="bottom" id="Fqa-W1-Vke"/>
+                            <constraint firstAttribute="trailing" secondItem="EOw-SW-FBZ" secondAttribute="trailing" id="iOb-YN-FBy"/>
+                            <constraint firstItem="EOw-SW-FBZ" firstAttribute="top" secondItem="rym-oS-Qbg" secondAttribute="bottom" constant="82" id="t3R-dv-x4A"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" id="46E-O3-4BR"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hes-5N-Axg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="939" y="432"/>
+            <point key="canvasLocation" x="1041" y="160"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="hn6-4k-sCi">
@@ -348,7 +380,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UFu-VL-DcJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="939" y="1136"/>
+            <point key="canvasLocation" x="1041" y="866"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
