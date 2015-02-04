@@ -12,6 +12,7 @@
 		6259793E1A80358300AF6C9D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6259793D1A80358300AF6C9D /* AppDelegate.m */; };
 		625979491A80358300AF6C9D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 625979481A80358300AF6C9D /* Images.xcassets */; };
 		625979581A80358300AF6C9D /* AudioGramTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 625979571A80358300AF6C9D /* AudioGramTests.m */; };
+		62AB2CB51A81CA81008FAF04 /* MyLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AB2CB41A81CA81008FAF04 /* MyLoginViewController.m */; };
 		62AD3A4E1A813532009FDE5C /* AddPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 62AD3A3B1A813532009FDE5C /* AddPhotoViewController.m */; };
 		62AD3A4F1A813532009FDE5C /* AudioGram.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 62AD3A3C1A813532009FDE5C /* AudioGram.xcdatamodeld */; };
 		62AD3A501A813532009FDE5C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62AD3A3F1A813532009FDE5C /* LaunchScreen.xib */; };
@@ -64,6 +65,8 @@
 		625979511A80358300AF6C9D /* AudioGramTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AudioGramTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		625979561A80358300AF6C9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		625979571A80358300AF6C9D /* AudioGramTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioGramTests.m; sourceTree = "<group>"; };
+		62AB2CB31A81CA81008FAF04 /* MyLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyLoginViewController.h; path = ../MyLoginViewController.h; sourceTree = "<group>"; };
+		62AB2CB41A81CA81008FAF04 /* MyLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyLoginViewController.m; path = ../MyLoginViewController.m; sourceTree = "<group>"; };
 		62AD3A3A1A813532009FDE5C /* AddPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPhotoViewController.h; sourceTree = "<group>"; };
 		62AD3A3B1A813532009FDE5C /* AddPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPhotoViewController.m; sourceTree = "<group>"; };
 		62AD3A3D1A813532009FDE5C /* AudioGram.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AudioGram.xcdatamodel; sourceTree = "<group>"; };
@@ -174,6 +177,8 @@
 				62AD3A411A813532009FDE5C /* Main.storyboard */,
 				62AD3A3C1A813532009FDE5C /* AudioGram.xcdatamodeld */,
 				62AD3A3F1A813532009FDE5C /* LaunchScreen.xib */,
+				62AB2CB31A81CA81008FAF04 /* MyLoginViewController.h */,
+				62AB2CB41A81CA81008FAF04 /* MyLoginViewController.m */,
 				62AD3A431A813532009FDE5C /* HomeViewController.h */,
 				62AD3A441A813532009FDE5C /* HomeViewController.m */,
 				62AD3A451A813532009FDE5C /* ImageCollectionViewCell.h */,
@@ -349,6 +354,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62AB2CB51A81CA81008FAF04 /* MyLoginViewController.m in Sources */,
 				6259793E1A80358300AF6C9D /* AppDelegate.m in Sources */,
 				62AD3AC21A8179DF009FDE5C /* ProfileViewController.m in Sources */,
 				62AD3A4F1A813532009FDE5C /* AudioGram.xcdatamodeld in Sources */,

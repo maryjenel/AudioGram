@@ -350,21 +350,6 @@
             </objects>
             <point key="canvasLocation" x="939" y="1136"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="cRu-m7-ZXj">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ddK-xO-Jwy" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="46c-cG-exE">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Bk3-Ej-Rhs" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1045" y="-465"/>
-        </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

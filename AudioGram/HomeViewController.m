@@ -8,6 +8,7 @@
 
 #import "HomeViewController.h"
 #import "ImageCollectionViewCell.h"
+#import "MyLoginViewController.h"
 #import <Parse/Parse.h>
 #import <ParseUI/ParseUI.h>
 
@@ -30,6 +31,7 @@
 
     }];
 
+
     
 }
 
@@ -38,7 +40,8 @@
     [super viewDidAppear:animated];
     if (![PFUser currentUser])
     {
-        PFLogInViewController *loginViewController = [[PFLogInViewController alloc]init];
+        
+        MyLoginViewController *loginViewController = [[MyLoginViewController alloc]init];
         [loginViewController setDelegate:self];
 
         PFSignUpViewController *signUpViewController = [[PFSignUpViewController alloc]init];
@@ -47,6 +50,7 @@
         [loginViewController setSignUpController:signUpViewController];
 
         [self presentViewController:loginViewController animated:YES completion:nil];
+
 
     }
 
