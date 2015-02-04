@@ -29,10 +29,7 @@
         self.photoArray = objects;
         [self.homeCollectionView reloadData];
 
-    }];
-
-
-    
+    }];   
 }
 
 -(void)viewDidAppear:(BOOL)animated
