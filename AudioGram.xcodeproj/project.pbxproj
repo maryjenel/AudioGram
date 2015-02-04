@@ -484,6 +484,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/ParsePlatform-LoginAndSignUpTutorial-0710943",
 				);
 				INFOPLIST_FILE = AudioGram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -498,6 +499,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/ParsePlatform-LoginAndSignUpTutorial-0710943",
 				);
 				INFOPLIST_FILE = AudioGram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

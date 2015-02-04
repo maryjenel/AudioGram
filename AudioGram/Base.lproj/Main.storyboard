@@ -314,21 +314,22 @@
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="TCf-46-fFs" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="1bX-gh-tlo"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="LPv-GZ-dFO">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+                        <segue destination="ZDb-mC-NX8" kind="relationship" relationship="viewControllers" id="0ea-26-Rjl"/>
                         <segue destination="G6F-DF-hpu" kind="relationship" relationship="viewControllers" id="WO2-bI-3t0"/>
                         <segue destination="mo8-JG-jeQ" kind="relationship" relationship="viewControllers" id="8ND-fd-EaO"/>
                         <segue destination="vXZ-lx-hvc" kind="relationship" relationship="viewControllers" id="x5W-tk-sGd"/>
-                        <segue destination="ZDb-mC-NX8" kind="relationship" relationship="viewControllers" id="0ea-26-Rjl"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hDS-jy-bJp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1487" y="-481"/>
+            <point key="canvasLocation" x="2019" y="-481"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sXR-Ol-orU">
@@ -348,6 +349,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UFu-VL-DcJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="939" y="1136"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="cRu-m7-ZXj">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ddK-xO-Jwy" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="46c-cG-exE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bk3-Ej-Rhs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1045" y="-465"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
