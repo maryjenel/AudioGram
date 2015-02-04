@@ -16,22 +16,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OeO-0a-mGr">
-                                <rect key="frame" x="247" y="481" width="51" height="30"/>
-                                <state key="normal" title="Share">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D7q-dg-kMR">
                                 <rect key="frame" x="25" y="28" width="270" height="197"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2LB-Hh-t9l">
-                                <rect key="frame" x="145" y="355" width="30" height="30"/>
+                                <rect key="frame" x="42" y="241" width="30" height="30"/>
                                 <state key="normal" title="📷">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="onCameraButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="c0K-1Z-ZXF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0sR-1g-m17">
+                                <rect key="frame" x="107" y="241" width="30" height="30"/>
+                                <state key="normal" title="🎤">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onRecordButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="oJx-70-sKl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="htW-Rp-zS6">
+                                <rect key="frame" x="166" y="241" width="30" height="30"/>
+                                <state key="normal" title="🚫">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onStopButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="1WU-Yf-SGS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b72-tq-l1d">
+                                <rect key="frame" x="234" y="241" width="30" height="30"/>
+                                <state key="normal" title="▶️">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onPlayButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="cuv-TO-32f"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OeO-0a-mGr">
+                                <rect key="frame" x="244" y="460" width="51" height="30"/>
+                                <state key="normal" title="Share">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onShareButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="l9H-DI-BlF"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -42,7 +72,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2313" y="329"/>
+            <point key="canvasLocation" x="2281" y="432"/>
         </scene>
         <!--Search View Controller-->
         <scene sceneID="gQp-Kr-BEL">
@@ -203,7 +233,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ydD-xk-jPb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="41" y="424"/>
+            <point key="canvasLocation" x="939" y="1884"/>
         </scene>
         <!--Profile-->
         <scene sceneID="p2f-wG-Mek">
@@ -317,7 +347,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UFu-VL-DcJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="526" y="424"/>
+            <point key="canvasLocation" x="939" y="1136"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
