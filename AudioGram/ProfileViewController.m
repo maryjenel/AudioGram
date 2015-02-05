@@ -27,7 +27,18 @@
     [self getAllPhotosByUser];
     self.imagePicker = [[UIImagePickerController alloc]init];
     self.imagePicker.delegate = self;
-   
+    PFObject *user = [PFUser currentUser];
+    if (!(user[@"profilePhoto"] == nil))
+    {
+
+        PFFile *imagefile = [user objectForKey:@"profilePhoto"];
+        [imagefile getDataInBackgroundWithBlock:^(NSData *data, NSError *error)
+         {
+             UIImage *image = [UIImage imageWithData:data];
+             self.profileImageView.image = image;
+         }];
+    }
+
 }
 
 - (void)getAllPhotosByUser
@@ -43,6 +54,24 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [self getAllPhotosByUser];
+}
+
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return self.photoArray.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    ImageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ProfileCell" forIndexPath:indexPath];
+    PFObject *object = [self.photoArray objectAtIndex:indexPath.row];
+    PFFile *imagefile = [object objectForKey:@"image"];
+    [imagefile getDataInBackgroundWithBlock:^(NSData *data, NSError *error)
+     {
+         UIImage *image = [UIImage imageWithData:data];
+         cell.imageView.image = image;
+     }];
+    return cell;
 }
 
 
@@ -76,21 +105,6 @@
 }
 
 
--(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
-{
-    return self.photoArray.count;
-}
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    ImageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ProfileCell" forIndexPath:indexPath];
-    PFObject *object = [self.photoArray objectAtIndex:indexPath.row];
-    PFFile *imagefile = [object objectForKey:@"image"];
-    [imagefile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-        UIImage *image = [UIImage imageWithData:data];
-        cell.imageView.image = image;
-    }];
-    return cell;
-}
 
 @end
