@@ -28,11 +28,7 @@
     {
         self.photoArray = objects;
         [self.homeCollectionView reloadData];
-
-    }];
-
-
-    
+    }];   
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -50,10 +46,7 @@
         [loginViewController setSignUpController:signUpViewController];
 
         [self presentViewController:loginViewController animated:YES completion:nil];
-
-
     }
-
 }
 
 -(BOOL)logInViewController:(PFLogInViewController *)logInController shouldBeginLogInWithUsername:(NSString *)username password:(NSString *)password

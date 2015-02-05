@@ -86,25 +86,30 @@
      //absolutestring turns a NSURL into a string
     [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
      {
+         // Once the image has been saved create a new pf object and store the values for that photo
          if (!error) {
              NSLog(@"%@", imageFile);
              PFObject *photoObject = [PFObject objectWithClassName:@"Photo"];
              photoObject[@"photoURL"] = @"bart";
              photoObject[@"image"] = imageFile;
-            [photoObject setObject:[PFUser currentUser] forKey:@"createdBy"];
+             [photoObject setObject:[PFUser currentUser] forKey:@"createdBy"];
              [photoObject saveInBackground];    // [Optional] Track statistics around application opens.
-         }
-     }];
 
-    // Save the Audio that was recorded into the Audio Table in Parse
-    NSData *audioData = [NSData dataWithContentsOfFile:[self.filePath path]]; // Create an data object with the recorded file path
-    PFFile *audioFile = [PFFile fileWithName:@"recording.caf" data:audioData]; 
-    [audioFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
-     {
-         if (!error) {
-             PFObject *audioObject = [PFObject objectWithClassName:@"Audio"];
-             audioObject[@"audioFile"] = audioFile;
-             [audioObject saveInBackground];
+             // Save the Audio that was recorded into the Audio Table in Parse
+             NSData *audioData = [NSData dataWithContentsOfFile:[self.filePath path]]; // Create an data object with the recorded file path
+             PFFile *audioFile = [PFFile fileWithName:@"recording.caf" data:audioData];
+             [audioFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+              {
+                  // Create an audio object and save it in parse
+                  if (!error) {
+                      PFObject *audioObject = [PFObject objectWithClassName:@"Audio"];
+                      audioObject[@"audioFile"] = audioFile;
+                      audioObject[@"user"] = [PFUser currentUser];
+                      audioObject[@"photo"] = photoObject;
+                      [audioObject saveInBackground];
+                  }
+              }];
+
          }
      }];
 }
