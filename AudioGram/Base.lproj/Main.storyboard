@@ -336,7 +336,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProfileCell" id="9dy-Pw-29a">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProfileCell" id="9dy-Pw-29a" customClass="ImageCollectionViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -358,6 +358,7 @@
                                             <constraint firstItem="kY7-et-WSy" firstAttribute="leading" secondItem="9dy-Pw-29a" secondAttribute="leadingMargin" constant="-8" id="YCk-Ir-jNE"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="imageView" destination="kY7-et-WSy" id="NZc-DD-w7K"/>
                                             <segue destination="kCq-40-smq" kind="push" id="YSa-qD-xZm"/>
                                         </connections>
                                     </collectionViewCell>

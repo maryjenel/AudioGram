@@ -138,7 +138,7 @@
                     self.audioPlayer.delegate = self;
                     [self.audioPlayer prepareToPlay];
                     [self.audioPlayer setVolume:0.5];
-                    self.audioPlayer.numberOfLoops = 1;
+                    self.audioPlayer.numberOfLoops = 0;
                     [self.audioPlayer play];
                 }
             }];
