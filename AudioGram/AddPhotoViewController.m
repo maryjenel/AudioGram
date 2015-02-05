@@ -152,7 +152,6 @@
         [self.audioPlayer stop];
         [[AVAudioSession sharedInstance] setActive: NO error: nil];
     }
-
 }
 
 - (IBAction)onRecordButtonPressed:(UIButton *)sender
@@ -162,8 +161,6 @@
         // If not, start recording
         [self.audioRecorder record];
     }
-
-
 }
 
 @end
