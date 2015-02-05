@@ -368,12 +368,16 @@
                                     <outlet property="delegate" destination="G6F-DF-hpu" id="TXW-CF-FGY"/>
                                 </connections>
                             </collectionView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rym-oS-Qbg">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profilePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="rym-oS-Qbg">
                                 <rect key="frame" x="10" y="14" width="68" height="88"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="88" id="4Oj-2V-MEE"/>
                                     <constraint firstAttribute="width" constant="68" id="KhI-EM-mvr"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Spp-fF-yrs" appends="YES" id="Uno-5F-Kpq"/>
+                                </connections>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="followers" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yf8-QL-lbc">
                                 <rect key="frame" x="169" y="27" width="41" height="44"/>
@@ -410,9 +414,15 @@
                     <tabBarItem key="tabBarItem" title="Profile" id="46E-O3-4BR"/>
                     <connections>
                         <outlet property="collectionView" destination="EOw-SW-FBZ" id="f7a-Cg-ltV"/>
+                        <outlet property="profileImageView" destination="rym-oS-Qbg" id="4hh-MA-JVm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hes-5N-Axg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Spp-fF-yrs">
+                    <connections>
+                        <action selector="onProfilePictureTapped:" destination="G6F-DF-hpu" id="6En-JR-C9L"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1041" y="236"/>
         </scene>
@@ -458,6 +468,9 @@
             <point key="canvasLocation" x="1041" y="910"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="profilePlaceholder" width="144" height="208"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
