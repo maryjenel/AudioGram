@@ -10,9 +10,12 @@
 #import "ImageCollectionViewCell.h"
 #import <Parse/Parse.h>
 
-@interface ProfileViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface ProfileViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property NSMutableArray *photoArray;
+@property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
+@property UIImagePickerController *imagePicker;
+
 
 @end
 
@@ -22,6 +25,9 @@
 {
     [super viewDidLoad];
     [self getAllPhotosByUser];
+    self.imagePicker = [[UIImagePickerController alloc]init];
+    self.imagePicker.delegate = self;
+   
 }
 
 - (void)getAllPhotosByUser
@@ -38,6 +44,37 @@
 {
     [self getAllPhotosByUser];
 }
+
+
+- (IBAction)onProfilePictureTapped:(UITapGestureRecognizer *)sender
+{
+  //  CGPoint touchPoint = [sender locationInView:self.view];
+    [self.profileImageView addGestureRecognizer:sender];
+    [self.imagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    [self presentViewController:self.imagePicker animated:YES completion:nil];
+
+}
+
+
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    self.profileImageView.image = image;
+    [self dismissViewControllerAnimated:YES completion:nil];
+    NSData *imageData = UIImagePNGRepresentation(self.profileImageView.image);
+    PFFile *imageFile = [PFFile fileWithName:@"ProfilePicture.png" data:imageData];
+    [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+     {
+         if (!error) {
+             PFObject *user = [PFUser currentUser];
+             user[@"profilePhoto"] = imageFile;
+             [user saveInBackground];
+         }
+     }];
+
+
+}
+
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
