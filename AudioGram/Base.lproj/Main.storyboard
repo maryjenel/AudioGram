@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6724" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="TCf-46-fFs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="TCf-46-fFs">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6711"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -90,13 +90,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2OJ-LU-SnP">
-                                <rect key="frame" x="-2" y="0.0" width="320" height="44"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="mo8-JG-jeQ" id="SSj-Fa-cxb"/>
-                                </connections>
-                            </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="c1F-BL-dGP">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wKy-FP-chb">
@@ -126,6 +119,13 @@
                                     <outlet property="delegate" destination="mo8-JG-jeQ" id="Ih3-4x-OSn"/>
                                 </connections>
                             </collectionView>
+                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2OJ-LU-SnP">
+                                <rect key="frame" x="-2" y="0.0" width="320" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="mo8-JG-jeQ" id="SSj-Fa-cxb"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -136,6 +136,10 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="search" id="wxo-OI-udu"/>
+                    <connections>
+                        <outlet property="collectionView" destination="c1F-BL-dGP" id="LUZ-NM-ZCB"/>
+                        <outlet property="searchBar" destination="2OJ-LU-SnP" id="gTC-ur-nWw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Epc-fQ-8Z7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -154,9 +158,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fss-Ax-Cxp">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="IFF-ZS-KLt">
-                                    <size key="itemSize" width="319" height="526"/>
+                                    <size key="itemSize" width="319" height="519"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -166,12 +170,33 @@
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="319" height="526"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="319" height="519"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ad9-CW-yjk">
-                                                    <rect key="frame" x="0.0" y="0.0" width="319" height="404"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ad9-CW-yjk">
+                                                    <rect key="frame" x="0.0" y="0.0" width="319" height="519"/>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kpc-Gn-2DZ">
+                                                    <rect key="frame" x="13" y="481" width="42" height="30"/>
+                                                    <state key="normal" title="Play">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="onPlayButtonPressed:" destination="FQi-18-c5J" eventType="touchUpInside" id="XtI-RY-ggv"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JJ8-AP-JNT">
+                                                    <rect key="frame" x="190" y="481" width="68" height="30"/>
+                                                    <state key="normal" title="Comment">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r0t-81-bnl">
+                                                    <rect key="frame" x="271" y="481" width="30" height="30"/>
+                                                    <state key="normal" title="Like">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -179,7 +204,7 @@
                                             <constraint firstItem="ad9-CW-yjk" firstAttribute="leading" secondItem="FQi-18-c5J" secondAttribute="leadingMargin" constant="-8" id="1qW-mH-yse"/>
                                             <constraint firstItem="ad9-CW-yjk" firstAttribute="top" secondItem="FQi-18-c5J" secondAttribute="topMargin" constant="-8" id="Y4m-LV-Waj"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="ad9-CW-yjk" secondAttribute="trailing" constant="-8" id="szx-9F-f1W"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="ad9-CW-yjk" secondAttribute="bottom" constant="114" id="xmq-qn-en8"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="ad9-CW-yjk" secondAttribute="bottom" constant="-8" id="xmq-qn-en8"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="imageView" destination="ad9-CW-yjk" id="SVX-Dx-1CN"/>
@@ -194,10 +219,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="fss-Ax-Cxp" secondAttribute="bottom" id="Bzc-r9-06l"/>
-                            <constraint firstAttribute="trailing" secondItem="fss-Ax-Cxp" secondAttribute="trailing" id="NDm-iO-LP7"/>
-                            <constraint firstItem="fss-Ax-Cxp" firstAttribute="leading" secondItem="wLG-xD-FiO" secondAttribute="leading" id="c0G-uH-zzo"/>
-                            <constraint firstItem="fss-Ax-Cxp" firstAttribute="top" secondItem="wLG-xD-FiO" secondAttribute="top" id="c0i-nT-3K2"/>
+                            <constraint firstItem="Xz2-5f-xe8" firstAttribute="top" secondItem="fss-Ax-Cxp" secondAttribute="bottom" id="M1P-3f-A05"/>
+                            <constraint firstItem="fss-Ax-Cxp" firstAttribute="leading" secondItem="wLG-xD-FiO" secondAttribute="leadingMargin" constant="-16" id="YgH-pD-sjN"/>
+                            <constraint firstItem="fss-Ax-Cxp" firstAttribute="top" secondItem="wLG-xD-FiO" secondAttribute="topMargin" id="b8E-2S-Zqe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fss-Ax-Cxp" secondAttribute="trailing" constant="-16" id="tpZ-tm-8X0"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="topRated" id="Qzw-ez-ltb"/>
@@ -269,7 +294,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Bss-FL-olc">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="raf-N2-X1d">
+                        <barButtonItem key="rightBarButtonItem" id="raf-N2-X1d">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="l8b-Uz-HQZ">
                                 <rect key="frame" x="255" y="443" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -311,7 +336,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProfileCell" id="9dy-Pw-29a">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ProfileCell" id="9dy-Pw-29a" customClass="ImageCollectionViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -333,6 +358,7 @@
                                             <constraint firstItem="kY7-et-WSy" firstAttribute="leading" secondItem="9dy-Pw-29a" secondAttribute="leadingMargin" constant="-8" id="YCk-Ir-jNE"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="imageView" destination="kY7-et-WSy" id="NZc-DD-w7K"/>
                                             <segue destination="kCq-40-smq" kind="push" id="YSa-qD-xZm"/>
                                         </connections>
                                     </collectionViewCell>
@@ -342,12 +368,16 @@
                                     <outlet property="delegate" destination="G6F-DF-hpu" id="TXW-CF-FGY"/>
                                 </connections>
                             </collectionView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rym-oS-Qbg">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profilePlaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="rym-oS-Qbg">
                                 <rect key="frame" x="10" y="14" width="68" height="88"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="88" id="4Oj-2V-MEE"/>
                                     <constraint firstAttribute="width" constant="68" id="KhI-EM-mvr"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Spp-fF-yrs" appends="YES" id="Uno-5F-Kpq"/>
+                                </connections>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="followers" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yf8-QL-lbc">
                                 <rect key="frame" x="169" y="27" width="41" height="44"/>
@@ -382,8 +412,17 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" id="46E-O3-4BR"/>
+                    <connections>
+                        <outlet property="collectionView" destination="EOw-SW-FBZ" id="f7a-Cg-ltV"/>
+                        <outlet property="profileImageView" destination="rym-oS-Qbg" id="4hh-MA-JVm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hes-5N-Axg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Spp-fF-yrs">
+                    <connections>
+                        <action selector="onProfilePictureTapped:" destination="G6F-DF-hpu" id="6En-JR-C9L"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1041" y="236"/>
         </scene>
@@ -429,6 +468,9 @@
             <point key="canvasLocation" x="1041" y="910"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="profilePlaceholder" width="144" height="208"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

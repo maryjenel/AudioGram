@@ -10,9 +10,9 @@
 
 @implementation ImageCollectionViewCell
 
-
-
-//something
-
+- (IBAction)onPlayButtonPressed:(UIButton *)sender
+{
+    [self.delegate didClickPlayButtonWithPhoto:self.photo];
+}
 
 @end

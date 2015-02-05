@@ -8,31 +8,88 @@
 
 #import "ProfileViewController.h"
 #import "ImageCollectionViewCell.h"
+#import <Parse/Parse.h>
 
-@interface ProfileViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface ProfileViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property NSMutableArray *photoArray;
+@property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
+@property UIImagePickerController *imagePicker;
+
 
 @end
 
 @implementation ProfileViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self getAllPhotosByUser];
+    self.imagePicker = [[UIImagePickerController alloc]init];
+    self.imagePicker.delegate = self;
+   
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)getAllPhotosByUser
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"Photo"];
+    [query whereKey:@"createdBy" equalTo:[PFUser currentUser]];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        self.photoArray = [objects mutableCopy];
+        [self.collectionView reloadData];
+    }];
 }
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self getAllPhotosByUser];
+}
+
+
+- (IBAction)onProfilePictureTapped:(UITapGestureRecognizer *)sender
+{
+  //  CGPoint touchPoint = [sender locationInView:self.view];
+    [self.profileImageView addGestureRecognizer:sender];
+    [self.imagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    [self presentViewController:self.imagePicker animated:YES completion:nil];
+
+}
+
+
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    self.profileImageView.image = image;
+    [self dismissViewControllerAnimated:YES completion:nil];
+    NSData *imageData = UIImagePNGRepresentation(self.profileImageView.image);
+    PFFile *imageFile = [PFFile fileWithName:@"ProfilePicture.png" data:imageData];
+    [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+     {
+         if (!error) {
+             PFObject *user = [PFUser currentUser];
+             user[@"profilePhoto"] = imageFile;
+             [user saveInBackground];
+         }
+     }];
+
+
+}
+
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 0;
+    return self.photoArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ImageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ProfileCell" forIndexPath:indexPath];
+    PFObject *object = [self.photoArray objectAtIndex:indexPath.row];
+    PFFile *imagefile = [object objectForKey:@"image"];
+    [imagefile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+        UIImage *image = [UIImage imageWithData:data];
+        cell.imageView.image = image;
+    }];
     return cell;
 }
 

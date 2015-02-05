@@ -7,8 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
+
+
+@protocol ImageCollectionViewCellDelegate <NSObject>
+
+- (void)didClickPlayButtonWithPhoto:(PFObject *)photo;
+
+@end
 
 @interface ImageCollectionViewCell : UICollectionViewCell
+
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property PFObject *photo;
+
+@property (weak, nonatomic) id <ImageCollectionViewCellDelegate> delegate;
 
 @end
