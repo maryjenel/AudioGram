@@ -215,6 +215,7 @@
         PFRelation *relation = [tagsObject relationForKey:@"photo"];
         [relation addObject:self.currentPhoto];
         [tagsObject saveInBackground];
+        self.tabBarController.selectedIndex = 0;
     }];
 
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
@@ -226,10 +227,6 @@
         [self presentViewController:alertcontroller animated:YES completion:^{
             nil;
         }];
-    }
-    else
-    {
-
     }
 }
 

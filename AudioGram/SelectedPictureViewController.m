@@ -94,6 +94,31 @@
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *addTagsAction = [UIAlertAction actionWithTitle:@"Add Tags" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         NSLog(@"merp");
+
+        UIAlertController *alertcontroller = [UIAlertController alertControllerWithTitle:@"Add A Tag!" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        [alertcontroller addTextFieldWithConfigurationHandler:^(UITextField *textField)
+         {
+             nil;
+         }];
+
+        UIAlertAction *addAction = [UIAlertAction actionWithTitle:@"Add" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action)
+        {
+            UITextField *textField = alertcontroller.textFields.firstObject;
+            PFObject *tagsObject = [PFObject objectWithClassName:@"Tags"];
+            tagsObject[@"content"] = textField.text;
+            PFRelation *relation = [tagsObject relationForKey:@"photo"];
+            [relation addObject:self.photoObject];
+            [tagsObject saveInBackground];
+        }];
+
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+        
+        [alertcontroller addAction:addAction];
+        [alertcontroller addAction:cancelAction];
+
+        [self presentViewController:alertcontroller animated:YES completion:^{
+            nil;
+        }];
     }];
     UIAlertAction *deletePhotoAction = [UIAlertAction actionWithTitle:@"Delete Photo" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action)
     {
@@ -103,8 +128,6 @@
              {
                  NSLog(@"deleted from parse!");
                  [self.navigationController popViewControllerAnimated:YES];
-
-
              }
              else
              {

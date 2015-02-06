@@ -24,16 +24,21 @@
 
 @implementation HomeViewController
 
-- (void)viewDidLoad
+- (void)getPhotos
 {
-    [super viewDidLoad];
     PFQuery *query = [PFQuery queryWithClassName:@"Photo"];
     [query selectKeys:@[@"objectId", @"createdAt", @"image", @"likes"]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
-    {
-        self.photoArray = objects;
-        [self.homeCollectionView reloadData];
-    }];   
+     {
+         self.photoArray = objects;
+         [self.homeCollectionView reloadData];
+     }];
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    [self getPhotos];   
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -52,6 +57,11 @@
 
         [self presentViewController:loginViewController animated:YES completion:nil];
     }
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self getPhotos];
 }
 
 -(BOOL)logInViewController:(PFLogInViewController *)logInController shouldBeginLogInWithUsername:(NSString *)username password:(NSString *)password
