@@ -24,6 +24,9 @@
 @property NSURL *filePath;
 @property UIImage *addPhotoImage;
 
+@property PFObject *currentPhoto;
+@property (weak, nonatomic) IBOutlet UIButton *addTagButton;
+
 @end
 
 @implementation AddPhotoViewController
@@ -39,10 +42,18 @@
     self.audioPlayer.delegate = self;
     self.audioRecorder.delegate = self;
 
+    if (!self.currentPhoto) {
+        self.addTagButton.enabled = NO;
+    }
+
     // Check that the user has permission to record
     if([self.audioSession respondsToSelector:@selector(requestRecordPermission:)]){
         [self.audioSession requestRecordPermission:^(BOOL granted) {
-            NSLog(@"Yeaaah!!!");
+            if (!granted)
+            {
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Permission Required" message:@"This app requires you to allow microphone use" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:nil];
+                [alertView show];
+            }
         }];
     }
 
@@ -74,12 +85,31 @@
 
 - (IBAction)onCameraButtonPressed:(UIButton *)sender
 {
-    [self.imagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
-    [self presentViewController:self.imagePicker animated:YES completion:nil];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *takePhotoAction = [UIAlertAction actionWithTitle:@"Take Photo" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        [self.imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
+        [self presentViewController:self.imagePicker animated:YES completion:nil];
+    }];
+    UIAlertAction *chooseFromPhotos = [UIAlertAction actionWithTitle:@"Choose From Photos" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        [self.imagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+        [self presentViewController:self.imagePicker animated:YES completion:nil];
+    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+    [alertController addAction:cancelAction];
+    [alertController addAction:takePhotoAction];
+    [alertController addAction:chooseFromPhotos];
+    [self presentViewController:alertController animated:YES completion:^{
 
+    }];
 }
+
 - (IBAction)onShareButtonPressed:(UIButton *)sender
 {
+    [self stopRecordingAndPlaying];
+
+    // enable the tag
+    self.addTagButton.enabled = YES;
+
     // Save the image that was taken to the Photo Table in Parse
     NSData *imageData = UIImagePNGRepresentation(self.addPhotoImage); //changed the image to a png file
     PFFile *imageFile = [PFFile fileWithName:@"AudioGramPhoto.png" data:imageData]; //create a PFFile inorder to save to parse
@@ -90,10 +120,9 @@
          if (!error) {
              NSLog(@"%@", imageFile);
              PFObject *photoObject = [PFObject objectWithClassName:@"Photo"];
-             photoObject[@"photoURL"] = @"bart";
              photoObject[@"image"] = imageFile;
              [photoObject setObject:[PFUser currentUser] forKey:@"createdBy"];
-             [photoObject saveInBackground];    // [Optional] Track statistics around application opens.
+             [photoObject saveInBackground];// [Optional] Track statistics around application opens.
 
              // Save the Audio that was recorded into the Audio Table in Parse
              NSData *audioData = [NSData dataWithContentsOfFile:[self.filePath path]]; // Create an data object with the recorded file path
@@ -107,9 +136,12 @@
                       audioObject[@"user"] = [PFUser currentUser];
                       audioObject[@"photo"] = photoObject;
                       [audioObject saveInBackground];
+
+                      // Once the image has been saved along with the video save it to
+                      // currentPhoto property
+                      self.currentPhoto = photoObject;
                   }
               }];
-
          }
      }];
 }
@@ -120,7 +152,6 @@
     self.imageView.image = image;
     self.addPhotoImage = image;
     [self dismissViewControllerAnimated:YES completion:nil];
-    
 }
 
 - (IBAction)onPlayButtonPressed:(UIButton *)sender
@@ -140,7 +171,7 @@
     [self.audioPlayer play];
 }
 
-- (IBAction)onStopButtonPressed:(UIButton *)sender
+- (void)stopRecordingAndPlaying
 {
     // Check if the audio recorder is already recording
     if (self.audioRecorder.recording) {
@@ -154,12 +185,51 @@
     }
 }
 
+- (IBAction)onStopButtonPressed:(UIButton *)sender
+{
+    [self stopRecordingAndPlaying];
+}
+
 - (IBAction)onRecordButtonPressed:(UIButton *)sender
 {
     // Check if the audio recorder is already recording
     if (!self.audioRecorder.recording) {
         // If not, start recording
         [self.audioRecorder record];
+    }
+}
+
+- (IBAction)addTagsButtonTapped:(UIButton *)sender
+{
+    UIAlertController *alertcontroller = [UIAlertController alertControllerWithTitle:@"Add A Tag!" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    [alertcontroller addTextFieldWithConfigurationHandler:^(UITextField *textField)
+     {
+         nil;
+     }];
+
+    UIAlertAction *addAction = [UIAlertAction actionWithTitle:@"Add" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action)
+    {
+        UITextField *textField = alertcontroller.textFields.firstObject;
+        PFObject *tagsObject = [PFObject objectWithClassName:@"Tags"];
+        tagsObject[@"content"] = textField.text;
+        PFRelation *relation = [tagsObject relationForKey:@"photo"];
+        [relation addObject:self.currentPhoto];
+        [tagsObject saveInBackground];
+    }];
+
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+
+    [alertcontroller addAction:addAction];
+    [alertcontroller addAction:cancelAction];
+
+    if (self.currentPhoto) {
+        [self presentViewController:alertcontroller animated:YES completion:^{
+            nil;
+        }];
+    }
+    else
+    {
+
     }
 }
 
