@@ -9,12 +9,15 @@
 #import "ProfileViewController.h"
 #import "ImageCollectionViewCell.h"
 #import <Parse/Parse.h>
+#import "SelectedPictureViewController.h"
 
 @interface ProfileViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property NSMutableArray *photoArray;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 @property UIImagePickerController *imagePicker;
+@property NSIndexPath *selectedIndexPath;
+@property (weak, nonatomic) IBOutlet UILabel *numberOfPostsLabel;
 
 
 @end
@@ -27,7 +30,18 @@
     [self getAllPhotosByUser];
     self.imagePicker = [[UIImagePickerController alloc]init];
     self.imagePicker.delegate = self;
-   
+    PFObject *user = [PFUser currentUser];
+    if (!(user[@"profilePhoto"] == nil))
+    {
+
+        PFFile *imagefile = [user objectForKey:@"profilePhoto"];
+        [imagefile getDataInBackgroundWithBlock:^(NSData *data, NSError *error)
+         {
+             UIImage *image = [UIImage imageWithData:data];
+             self.profileImageView.image = image;
+         }];
+    }
+
 }
 
 - (void)getAllPhotosByUser
@@ -43,6 +57,26 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [self getAllPhotosByUser];
+}
+
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return self.photoArray.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    ImageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ProfileCell" forIndexPath:indexPath];
+    PFObject *object = [self.photoArray objectAtIndex:indexPath.row];
+    PFFile *imagefile = [object objectForKey:@"image"];
+    [imagefile getDataInBackgroundWithBlock:^(NSData *data, NSError *error)
+     {
+         UIImage *image = [UIImage imageWithData:data];
+         cell.imageView.image = image;
+     }];
+    NSInteger photoCount = self.photoArray.count;
+    self.numberOfPostsLabel.text = [NSString stringWithFormat:@"%ld posts", (long)photoCount];
+    return cell;
 }
 
 
@@ -76,21 +110,13 @@
 }
 
 
--(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    return self.photoArray.count;
-}
+    SelectedPictureViewController *vc = segue.destinationViewController;
+    UICollectionViewCell *cell = (UICollectionViewCell *)sender; // changes(casting) from ID to uicollectionviewcell
+    self.selectedIndexPath = [self.collectionView indexPathForCell:cell];
+    vc.photoObject = [self.photoArray objectAtIndex:self.selectedIndexPath.row];
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    ImageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ProfileCell" forIndexPath:indexPath];
-    PFObject *object = [self.photoArray objectAtIndex:indexPath.row];
-    PFFile *imagefile = [object objectForKey:@"image"];
-    [imagefile getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
-        UIImage *image = [UIImage imageWithData:data];
-        cell.imageView.image = image;
-    }];
-    return cell;
 }
 
 @end

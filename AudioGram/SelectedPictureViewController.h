@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
 @interface SelectedPictureViewController : UIViewController
+
+@property PFObject *photoObject;
 
 @end
