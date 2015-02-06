@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 @property UIImagePickerController *imagePicker;
 @property NSIndexPath *selectedIndexPath;
+@property (weak, nonatomic) IBOutlet UILabel *numberOfPostsLabel;
 
 
 @end
@@ -73,6 +74,8 @@
          UIImage *image = [UIImage imageWithData:data];
          cell.imageView.image = image;
      }];
+    NSInteger photoCount = self.photoArray.count;
+    self.numberOfPostsLabel.text = [NSString stringWithFormat:@"%ld posts", (long)photoCount];
     return cell;
 }
 

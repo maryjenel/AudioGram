@@ -418,6 +418,7 @@
                     <navigationItem key="navigationItem" id="Sjp-be-7Fn"/>
                     <connections>
                         <outlet property="collectionView" destination="EOw-SW-FBZ" id="f7a-Cg-ltV"/>
+                        <outlet property="numberOfPostsLabel" destination="Dkt-ZS-7eH" id="XAy-Ae-2zt"/>
                         <outlet property="profileImageView" destination="rym-oS-Qbg" id="4hh-MA-JVm"/>
                     </connections>
                 </viewController>
