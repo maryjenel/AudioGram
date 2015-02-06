@@ -153,4 +153,9 @@
     [photo saveInBackground];
 }
 
+- (void)didClickCommentButtonWithPhoto:(PFObject *)photo
+{
+
+}
+
 @end

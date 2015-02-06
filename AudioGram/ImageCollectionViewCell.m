@@ -20,4 +20,8 @@
     [self.delegate didClickLikeButtonWithPhoto:self.photo];
 }
 
+- (IBAction)onCommentButtonTapped:(UIButton *)sender {
+    [self.delegate didClickCommentButtonWithPhoto:self.photo];
+}
+
 @end

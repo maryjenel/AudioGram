@@ -14,6 +14,7 @@
 
 - (void)didClickPlayButtonWithPhoto:(PFObject *)photo;
 - (void)didClickLikeButtonWithPhoto:(PFObject *)photo;
+- (void)didClickCommentButtonWithPhoto:(PFObject *)photo;
 
 @end
 
