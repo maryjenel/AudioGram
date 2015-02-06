@@ -9,12 +9,14 @@
 #import "ProfileViewController.h"
 #import "ImageCollectionViewCell.h"
 #import <Parse/Parse.h>
+#import "SelectedPictureViewController.h"
 
 @interface ProfileViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property NSMutableArray *photoArray;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 @property UIImagePickerController *imagePicker;
+@property NSIndexPath *selectedIndexPath;
 
 
 @end
@@ -105,6 +107,13 @@
 }
 
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    SelectedPictureViewController *vc = segue.destinationViewController;
+    UICollectionViewCell *cell = (UICollectionViewCell *)sender; // changes(casting) from ID to uicollectionviewcell
+    self.selectedIndexPath = [self.collectionView indexPathForCell:cell];
+    vc.photoObject = [self.photoArray objectAtIndex:self.selectedIndexPath.row];
 
+}
 
 @end
