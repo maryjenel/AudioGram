@@ -134,6 +134,9 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <connections>
+                                            <outlet property="imageView" destination="jCO-92-Sef" id="MQ5-tb-Wlr"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>

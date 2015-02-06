@@ -41,7 +41,6 @@
     [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
         UIImage *image = [UIImage imageWithData:data];
         cell.imageView.image = image;
-        [self.collectionView reloadData];
     }];
     return cell;
 }
