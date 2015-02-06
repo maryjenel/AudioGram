@@ -9,11 +9,10 @@
 #import "SearchViewController.h"
 #import "ImageCollectionViewCell.h"
 
-@interface SearchViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface SearchViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate>
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
-@property NSString *urlString;
 @property NSMutableArray *photoArray;
 @end
 
@@ -21,33 +20,51 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.urlString = @"https://api.instagram.com/v1/tags/snow/media/recent?client_id=60a5cb339aa14bbdbb74632bbd8b926d";
 
     self.photoArray = [NSMutableArray new];
 }
 
 
-
+#pragma mark Collection View Methods
+//TABLE VIEW METHODS
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return  0;
+    return  self.photoArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ImageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"SearchCell" forIndexPath:indexPath];
+
+    PFObject *photoObject = self.photoArray[indexPath.row];
+    PFFile *file = photoObject[@"image"];
+    [file getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+        UIImage *image = [UIImage imageWithData:data];
+        cell.imageView.image = image;
+    }];
     return cell;
 }
 
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark Helper Methods
+//HELPER METHODS
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"Tags"];
+    [query whereKey:@"content" containsString:searchBar.text];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
+     {
+        NSArray *tagObjects = objects;
+         for (PFObject *tag in tagObjects)
+         {
+            PFRelation *relation = [tag relationForKey:@"photo"];
+            PFQuery *query = [relation query];
+            [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
+            {
+                self.photoArray = [NSMutableArray arrayWithArray:objects];
+                [self.collectionView reloadData];
+          }];
+        }
+     }];
 }
-*/
 
 @end
