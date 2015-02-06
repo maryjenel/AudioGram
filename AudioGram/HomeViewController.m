@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *homeCollectionView;
 @property NSArray *photoArray;
 @property AVAudioPlayer *audioPlayer;
+@property NSArray *commentsArray;
 
 @end
 
@@ -155,7 +156,32 @@
 
 - (void)didClickCommentButtonWithPhoto:(PFObject *)photo
 {
+    UIAlertController *alertcontroller = [UIAlertController alertControllerWithTitle:@"Add A Comment!" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    [alertcontroller addTextFieldWithConfigurationHandler:^(UITextField *textField)
+     {
+         nil;
+     }];
+
+    UIAlertAction *okayAction = [UIAlertAction actionWithTitle:@"Okay" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action)
+                                 {
+                                     UITextField *textField = alertcontroller.textFields.firstObject;
+                                     PFObject *myComment = [PFObject objectWithClassName:@"Comment"];
+                                     myComment[@"commentContext"] = textField.text;
+                                     myComment[@"photo"] = photo;
+                                     myComment[@"user"] = [PFUser currentUser];
+                                     [myComment saveInBackground];
+                                 }];
+
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+    
+    [alertcontroller addAction:okayAction];
+    [alertcontroller addAction:cancelAction];
+    
+    [self presentViewController:alertcontroller animated:YES completion:^{
+        nil;
+    }];
 
 }
+
 
 @end
