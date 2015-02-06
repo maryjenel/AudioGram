@@ -112,10 +112,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="2OJ-LU-SnP">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="mo8-JG-jeQ" id="SSj-Fa-cxb"/>
+                                </connections>
+                            </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="c1F-BL-dGP">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="475"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wKy-FP-chb">
-                                    <size key="itemSize" width="308" height="211"/>
+                                    <size key="itemSize" width="150" height="158"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -125,11 +132,11 @@
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="308" height="211"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="158"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jCO-92-Sef">
-                                                    <rect key="frame" x="0.0" y="8" width="308" height="203"/>
+                                                    <rect key="frame" x="0.0" y="8" width="150" height="150"/>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -144,20 +151,16 @@
                                     <outlet property="delegate" destination="mo8-JG-jeQ" id="Ih3-4x-OSn"/>
                                 </connections>
                             </collectionView>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2OJ-LU-SnP">
-                                <rect key="frame" x="-2" y="0.0" width="320" height="44"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="mo8-JG-jeQ" id="SSj-Fa-cxb"/>
-                                </connections>
-                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="c1F-BL-dGP" firstAttribute="top" secondItem="f3z-6u-taN" secondAttribute="top" id="D4W-og-5cl"/>
-                            <constraint firstAttribute="trailing" secondItem="c1F-BL-dGP" secondAttribute="trailing" id="dAd-5n-fwA"/>
-                            <constraint firstItem="OWx-lM-jdo" firstAttribute="top" secondItem="c1F-BL-dGP" secondAttribute="bottom" id="iJ7-ST-Z2t"/>
-                            <constraint firstItem="c1F-BL-dGP" firstAttribute="leading" secondItem="f3z-6u-taN" secondAttribute="leading" id="jEQ-zg-ogS"/>
+                            <constraint firstItem="c1F-BL-dGP" firstAttribute="leading" secondItem="f3z-6u-taN" secondAttribute="leading" id="Opd-cX-kzz"/>
+                            <constraint firstItem="2OJ-LU-SnP" firstAttribute="leading" secondItem="f3z-6u-taN" secondAttribute="leadingMargin" constant="-16" id="QTH-te-G3B"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2OJ-LU-SnP" secondAttribute="trailing" constant="-16" id="Sgk-vq-FMF"/>
+                            <constraint firstItem="c1F-BL-dGP" firstAttribute="top" secondItem="2OJ-LU-SnP" secondAttribute="bottom" id="dgF-fQ-130"/>
+                            <constraint firstAttribute="trailing" secondItem="c1F-BL-dGP" secondAttribute="trailing" id="hyj-VZ-Mg6"/>
+                            <constraint firstItem="OWx-lM-jdo" firstAttribute="top" secondItem="c1F-BL-dGP" secondAttribute="bottom" id="tBc-82-VaH"/>
+                            <constraint firstItem="2OJ-LU-SnP" firstAttribute="top" secondItem="f3z-6u-taN" secondAttribute="topMargin" id="z5U-Kp-Usd"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="search" id="wxo-OI-udu"/>
@@ -168,7 +171,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Epc-fQ-8Z7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2019" y="236"/>
+            <point key="canvasLocation" x="2025" y="236"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="2Gd-j2-nks">
@@ -489,7 +492,7 @@
         <scene sceneID="d13-dB-NqT">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZEt-ul-1hh" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="46E-O3-4BR"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="profileIcon" id="46E-O3-4BR"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="BzM-x4-H7R">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -506,6 +509,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="profileIcon" width="40" height="40"/>
         <image name="profilePlaceholder" width="144" height="208"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

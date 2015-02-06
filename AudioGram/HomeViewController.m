@@ -38,7 +38,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self getPhotos];   
+    if (!self.photoArray) {
+        [self getPhotos];
+    }
 }
 
 -(void)viewDidAppear:(BOOL)animated

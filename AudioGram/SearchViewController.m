@@ -29,7 +29,7 @@
 //TABLE VIEW METHODS
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return  self.photoArray.count;
+    return self.photoArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -49,6 +49,8 @@
 //HELPER METHODS
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
+    [self.photoArray removeAllObjects];
+    
     PFQuery *query = [PFQuery queryWithClassName:@"Tags"];
     [query whereKey:@"content" containsString:searchBar.text];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
@@ -60,11 +62,14 @@
             PFQuery *query = [relation query];
             [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
             {
-                self.photoArray = [NSMutableArray arrayWithArray:objects];
+                for (PFObject *photoObject in objects) {
+                    [self.photoArray addObject:photoObject];
+                }
                 [self.collectionView reloadData];
           }];
         }
      }];
+    [searchBar resignFirstResponder];
 }
 
 @end
