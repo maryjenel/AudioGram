@@ -27,7 +27,7 @@
 {
     [super viewDidLoad];
     PFQuery *query = [PFQuery queryWithClassName:@"Photo"];
-    [query selectKeys:@[@"objectId", @"createdAt",@"image"]];
+    [query selectKeys:@[@"objectId", @"createdAt", @"image", @"likes"]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
     {
         self.photoArray = objects;
@@ -146,6 +146,11 @@
     }];
 }
 
-
+- (void)didClickLikeButtonWithPhoto:(PFObject *)photo
+{
+    PFRelation *relation = [photo relationForKey:@"likes"];
+    [relation addObject:[PFUser currentUser]];
+    [photo saveInBackground];
+}
 
 @end

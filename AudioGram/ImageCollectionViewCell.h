@@ -13,6 +13,7 @@
 @protocol ImageCollectionViewCellDelegate <NSObject>
 
 - (void)didClickPlayButtonWithPhoto:(PFObject *)photo;
+- (void)didClickLikeButtonWithPhoto:(PFObject *)photo;
 
 @end
 

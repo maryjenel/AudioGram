@@ -15,4 +15,9 @@
     [self.delegate didClickPlayButtonWithPhoto:self.photo];
 }
 
+- (IBAction)onLikeButtonTapped:(UIButton *)sender
+{
+    [self.delegate didClickLikeButtonWithPhoto:self.photo];
+}
+
 @end
