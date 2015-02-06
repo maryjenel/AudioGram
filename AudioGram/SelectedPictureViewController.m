@@ -8,6 +8,7 @@
 
 #import "SelectedPictureViewController.h"
 #import <Parse/Parse.h>
+#import "ProfileViewController.h"
 
 @interface SelectedPictureViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -23,10 +24,12 @@
     [super viewDidLoad];
 
     PFFile *imagefile = [self.photoObject objectForKey:@"image"];
+
     [imagefile getDataInBackgroundWithBlock:^(NSData *data, NSError *error)
      {
          UIImage *image = [UIImage imageWithData:data];
          self.imageView.image = image;
+     //    self.photoIDString = imageString;
      }];
 }
 
@@ -86,10 +89,39 @@
 
 }
 
-// ***** Feel better, Jenel ******* //
 - (IBAction)onEditButtonPressed:(UIBarButtonItem *)sender
 {
-    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *addTagsAction = [UIAlertAction actionWithTitle:@"Add Tags" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        NSLog(@"merp");
+    }];
+    UIAlertAction *deletePhotoAction = [UIAlertAction actionWithTitle:@"Delete Photo" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action)
+    {
+        [self.photoObject deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+         {
+             if (succeeded && !error)
+             {
+                 NSLog(@"deleted from parse!");
+                 [self.navigationController popViewControllerAnimated:YES];
+
+
+             }
+             else
+             {
+                 NSLog(@"error: %@", error);
+             }
+         }];
+    }];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+
+    [alertController addAction:cancelAction];
+    [alertController addAction:addTagsAction];
+    [alertController addAction:deletePhotoAction];
+    [self presentViewController:alertController animated:YES completion:^{
+        NSLog(@"yaaasss");
+    }];
+
+
 }
 
 
